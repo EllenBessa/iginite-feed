@@ -70,3 +70,62 @@
 
   display: block;
 }
+
+.commentForm {
+  margin-top: 1.5rem;
+  padding-top: 1.5rem;
+  width: 100%;
+
+  border-top: 1px solid var(--gray-600);
+}
+
+.commentForm > strong {
+  line-height: 1.6;
+  color: var(--gray-100);
+}
+
+.commentForm textarea {
+  padding: 1rem;
+  margin-top: 1rem;
+  width: 100%;
+
+  background: var(--gray-900);
+  border: 0;
+  resize: none;
+  height: 6rem;
+  border-radius: 8px;
+  color: var(--gray-100);
+  line-height: 1.4;
+}
+
+.commentForm footer {
+  visibility: hidden;
+  max-height: 0;
+  opacity: 0;
+
+  transition: max-height 0.3s, opacity 0.3s;
+}
+
+.commentForm:focus-within footer {
+  visibility: visible;
+  opacity: 1;
+  max-height: 15rem;
+}
+
+.commentForm button[type="submit"] {
+  padding: 1rem 1.5rem;
+  margin-top: 1rem;
+
+  background: var(--green-500);
+  color: var(--white);
+  font-weight: 700;
+  border-radius: 8px;
+  border: 0;
+
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.commentForm button[type="submit"]:hover {
+  background: var(--green-300);
+}
