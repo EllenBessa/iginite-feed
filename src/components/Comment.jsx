@@ -6,16 +6,16 @@ export function Comment() {
     <div className={styles.comment}>
       <img src="https://github.com/ellenbessa.png" alt="" />
 
-      <div className={styles.commentbox}>
+      <div className={styles.commentBox}>
         <div className={styles.commentContent}>
           <header>
-            <div className={styles.authotAndTime}>
+            <div className={styles.authorAndTime}>
               <strong>Ellen Bessa</strong>
               <time dateTime="11 de Maio ás 08:13h">Cerca de 1h atrás</time>
             </div>
 
             <button title="Deletar comentário">
-              <Trash size={28} />
+              <Trash size={24} />
             </button>
           </header>
 
