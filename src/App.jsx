@@ -6,6 +6,48 @@ import styles from "./App.module.css";
 
 import "./global.css";
 
+const posts = [
+  {
+    id: 1,
+    author: {
+      avatarUrl: "https://github.com/ellenbessa.png",
+      name: "Ellen Bessa",
+      role: "Estudando"
+    },
+    content: [
+      { type: "paragraph", content: "Fala galeraa 👋" },
+      {
+        type: "paragraph",
+        content:
+          "Acabei de subir mais um projeto no meu portifa.É um projeto que fiz no NLW Return, evento da Rocketseat. O nome do projeto é DoctorCare 🚀"
+      },
+      { type: "link", content: "👉jane.design/doctorcare" },
+      { type: "link", content: "" }
+    ],
+    publishedAt: new Date("2023-05-19 20:00:00")
+  },
+
+  {
+    id: 2,
+    author: {
+      avatarUrl: "https://github.com/caiovinicius7.png",
+      name: "Caio Vinícius",
+      role: "Trabalhando"
+    },
+    content: [
+      { type: "paragraph", content: "Fala galeraa 👋" },
+      {
+        type: "paragraph",
+        content:
+          "Acabei de subir mais um projeto no meu portifa.É um projeto que fiz no NLW Return, evento da Rocketseat. O nome do projeto é DoctorCare 🚀"
+      },
+      { type: "link", content: "👉jane.design/doctorcare" },
+      { type: "link", content: "" }
+    ],
+    publishedAt: new Date("2023-05-10 18:00:00")
+  }
+];
+
 export function App() {
   return (
     <div>
@@ -15,11 +57,16 @@ export function App() {
         <Sidebar />
 
         <main>
-          <Post
-            author="Ellen Bessa"
-            content="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum"
-          />
-          <Post author="Caio Vinicius" content="Um novo post legal" />
+          {posts.map((post) => {
+            return (
+              // eslint-disable-next-line react/jsx-key
+              <Post
+                author={post.author}
+                content={post.content}
+                publishedAt={post.publishedAt}
+              />
+            );
+          })}
         </main>
       </div>
     </div>
