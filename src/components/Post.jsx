@@ -18,12 +18,12 @@ export function Post({ author, publishedAt, content }) {
     }
   );
 
-  const [newCommentText, setNewCommentText] = useState("");
-
   const publishedDateRelativeToNow = formatDistanceToNow(publishedAt, {
     locale: ptBR,
     addSuffix: true
   });
+
+  const [newCommentText, setNewCommentText] = useState("");
 
   function handleCreateNewComment() {
     event.preventDefault();
@@ -34,6 +34,10 @@ export function Post({ author, publishedAt, content }) {
 
   function handleNewCommentChange() {
     setNewCommentText(event.target.value);
+  }
+
+  function deleteComment(comment) {
+    console.log(`deletar comentario ${comment}`);
   }
 
   return (
@@ -87,7 +91,13 @@ export function Post({ author, publishedAt, content }) {
 
       <div className={styles.commentList}>
         {comments.map((comment) => {
-          return <Comment key={comment} content={comment} />;
+          return (
+            <Comment
+              key={comment}
+              content={comment}
+              onDeleteComment={deleteComment}
+            />
+          );
         })}
       </div>
     </article>
